@@ -1,7 +1,7 @@
 import React from "react";
 import { signIn } from "next-auth/react";
 
-const Auth: React.FC = () => {
+export const Auth: React.FC = () => {
   return (
     <div>
       <button
@@ -13,5 +13,3 @@ const Auth: React.FC = () => {
     </div>
   );
 };
-
-export default Auth;
