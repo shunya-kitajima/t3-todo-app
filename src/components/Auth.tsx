@@ -8,7 +8,7 @@ export const Auth: React.FC = () => {
         className="rounded bg-blue-600 py-2 px-4 font-bold text-white hover:bg-blue-800"
         onClick={() => signIn("github")}
       >
-        Github Auth
+        GitHub Auth
       </button>
     </div>
   );
