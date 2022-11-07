@@ -18,3 +18,5 @@ export type UpdateTaskInput = z.TypeOf<typeof updateTaskSchema>;
 export const getSingleTaskSchema = z.object({
   taskId: z.string().cuid(),
 });
+
+export type getSingleTaskInput = z.TypeOf<typeof getSingleTaskSchema>;
