@@ -2,7 +2,9 @@
 import { t } from "../trpc";
 import { todoRouter } from "./todo";
 
-export const appRouter = t.router({});
+export const appRouter = t.router({
+  todo: todoRouter,
+});
 
 // export type definition of API
 export type AppRouter = typeof appRouter;
