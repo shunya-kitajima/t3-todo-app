@@ -19,4 +19,6 @@ export const getSingleTaskSchema = z.object({
   taskId: z.string().cuid(),
 });
 
-export type getSingleTaskInput = z.TypeOf<typeof getSingleTaskSchema>;
+export const deleteTaskSchema = z.object({
+  taskId: z.string().cuid(),
+});
