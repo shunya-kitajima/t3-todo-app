@@ -23,6 +23,7 @@ export const useMutateTask = () => {
           previousTodos.map((task) => (res.id === task.id ? res : task))
         );
       }
+      reset();
     },
   });
 
@@ -34,6 +35,7 @@ export const useMutateTask = () => {
           previousTodos.filter((task) => variables.taskId !== task.id)
         );
       }
+      reset();
     },
   });
 
