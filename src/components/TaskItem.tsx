@@ -5,11 +5,36 @@ import useStore from "../store";
 import { UpdateTaskInput } from "../schema/todo";
 import { useMutateTask } from "../hooks/useMutateTask";
 
-export const TaskItem: React.FC = () => {
-  const { editedTask } = useStore();
+export const TaskItem: React.FC<UpdateTaskInput> = ({
+  taskId,
+  title,
+  body,
+}) => {
   const update = useStore((state) => state.updateEditedTask);
-  const reset = useStore((state) => state.resetEditedTask);
   const { deleteTaskMutation } = useMutateTask();
 
-  return <div></div>;
+  return (
+    <li>
+      <Link href={`/task/${taskId}`}>
+        <span className="cursor-pointer">{title}</span>
+      </Link>
+      <div className="float-right ml-20 flex">
+        <PencilIcon
+          className="mx-1 h-5 w-5 cursor-pointer text-blue-600"
+          onClick={() => {
+            update({ taskId, title, body });
+          }}
+        />
+        <TrashIcon
+          className="h-5 w-5 cursor-pointer text-blue-600"
+          onClick={() => {
+            deleteTaskMutation.mutate({ taskId });
+          }}
+        />
+      </div>
+      {deleteTaskMutation.isLoading && (
+        <p className="mb-2 text-green-500">Mutation under process...</p>
+      )}
+    </li>
+  );
 };
